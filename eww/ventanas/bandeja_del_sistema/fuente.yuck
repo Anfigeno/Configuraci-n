@@ -1,0 +1,19 @@
+(defwindow bandeja_del_sistema 
+  :geometry (geometry :width "120px"
+                      :height "50px"
+                      :x "-40px"
+                      :y "42px"
+                      :anchor "top right")
+  :stacking "bg"
+  :windowtype "normal"
+  :wm-ignore true 
+  (componente_bandeja_del_sistema)
+)
+
+(defwidget componente_bandeja_del_sistema []
+  (box 
+    :class "bandeja-del-sistema"
+    :space-evenly false 
+    (systray :icon-size 14 :spacing 6 :vexpand true :hexpand true )
+  )
+)
