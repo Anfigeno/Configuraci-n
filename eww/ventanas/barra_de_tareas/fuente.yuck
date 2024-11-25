@@ -42,7 +42,7 @@
 )
 
 (defpoll hora :interval "1s" "date +'%H:%M:%S'")
-(defpoll fecha :interval "1s" "date +'%d/%m/%Y'")
+(defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
 
 (defwidget tiempo []
   (box :orientation "vertical" :class "tiempo" :valign "center" :space-evenly false

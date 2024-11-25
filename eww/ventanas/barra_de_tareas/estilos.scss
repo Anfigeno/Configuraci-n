@@ -1,10 +1,9 @@
 .barra-de-tareas {
   background-color: $vacio;
   color: $tope;
-  font-family: "Univers Condensed";
-  font-size: 13px;
-  font-weight: 400;
+  font-family: "Gobold";
   padding: 0 17px 0 17px;
+  font-size: 8pt;
 }
 
 .escritorios {
@@ -12,19 +11,18 @@
 }
 
 .icono-escritorio.activo {
-  font-size: 16px;
   padding: 0 8px 0 2px;
+  font-size: 12pt;
   color: $tope;
 }
 
 .icono-escritorio {
-  font-size: 14px;
+  font-size: 10pt;
   padding-top: 4px;
   color: $nube;
 }
 
 .tiempo {
   font-size: 8pt;
-  font-weight: 500;
   color: $tope;
 }
