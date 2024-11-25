@@ -2,12 +2,12 @@
   background-color: $vacio;
   color: $tope;
   font-family: "Gobold";
-  padding: 0 17px 0 17px;
+  padding: 4px 17px;
   font-size: 8pt;
 }
 
 .escritorios {
-  padding: 0 14px 0 14px;
+  @extend .contenedor;
 }
 
 .icono-escritorio.activo {
@@ -23,6 +23,18 @@
 }
 
 .tiempo {
-  font-size: 8pt;
+  font-size: 7pt;
   color: $tope;
+  @extend .contenedor;
+}
+
+.indicador-bandeja-del-sistema button {
+  @extend .contenedor;
+  & .texto {
+    padding: 0 2px 0 0;
+  }
+
+  &:hover {
+    background-color: $vacio;
+  }
 }

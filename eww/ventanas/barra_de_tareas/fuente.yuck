@@ -1,10 +1,8 @@
 (defwindow barra_de_tareas
   :monitor 0
   :geometry (geometry :width "100%"
-                      :height "30px"
                       :anchor "top center")
   :stacking "bg"
-  :reserve (struts :distance "30px" :side "top")
   :windowtype "dock"
   :wm-ignore false
   (contenedor_barra_de_tareas))
@@ -30,7 +28,7 @@
 )
 
 (defwidget bandeja_c []
-  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false :halign "end" :spacing 16
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false :halign "end" :spacing 8
     (indicador_bandeja_del_sistema)
     (tiempo)
   )
@@ -48,7 +46,11 @@
 (defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
 
 (defwidget tiempo []
-  (box :orientation "vertical" :class "tiempo" :valign "center" :space-evenly false
+  (box 
+      :orientation "vertical"
+      :class "tiempo"
+      :valign "center"
+      :space-evenly false
     (box :orientation "horizontal" :class "hora" :halign "center" hora)
     (box :orientation "horizontal" :class "fecha" :halign "center" fecha)
   )
@@ -63,7 +65,7 @@
         ? "eww update bandeja_del_sistema_abierta=false && eww open bandeja_del_sistema"
         : "eww update bandeja_del_sistema_abierta=true && eww close bandeja_del_sistema"
       }
-      {bandeja_del_sistema_abierta ? '' : ''}
+      (label :class "texto" :text {bandeja_del_sistema_abierta ? '' : ''})
     )
   )
 )

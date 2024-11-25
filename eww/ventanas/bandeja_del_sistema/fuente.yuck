@@ -1,8 +1,8 @@
 (defwindow bandeja_del_sistema 
-  :geometry (geometry :width "120px"
+  :geometry (geometry :width "140px"
                       :height "50px"
                       :x "-40px"
-                      :y "42px"
+                      :y "56px"
                       :anchor "top right")
   :stacking "bg"
   :windowtype "normal"
@@ -14,6 +14,9 @@
   (box 
     :class "bandeja-del-sistema"
     :space-evenly false 
-    (systray :icon-size 14 :spacing 6 :vexpand true :hexpand true )
+    :hexpand true
+    (box :halign "center" :hexpand true
+      (systray :icon-size 14 :spacing 6  )
+    )
   )
 )

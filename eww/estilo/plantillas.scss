@@ -1,0 +1,13 @@
+.contenedor {
+  background-color: $sombra;
+  border: 1px solid $humo;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.contenedor-de-boton {
+  @extend .contenedor;
+  &:hover {
+    background-color: $vacio;
+  }
+}
