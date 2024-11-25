@@ -1,0 +1,52 @@
+(defwindow barra_de_tareas
+  :monitor 0
+  :geometry (geometry :width "100%"
+                      :height "30px"
+                      :anchor "top center")
+  :stacking "bg"
+  :reserve (struts :distance "30px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (contenedor_barra_de_tareas))
+
+(defpoll estado_de_los_escritorios_0 :interval "100ms" :initial "[]" "~/.config/eww/clis/escritorios --pantallas 2 --pantalla 1")
+
+(defwidget contenedor_barra_de_tareas []
+  (box :orientation "horizontal" :class "barra-de-tareas" :space-evenly true 
+    (bandeja_a)
+    (bandeja_b)
+    (bandeja_c)
+  )
+)
+
+(defwidget bandeja_a []
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false "a")
+)
+
+(defwidget bandeja_b []
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly true :halign "center"
+    (escritorios)
+  )
+)
+
+(defwidget bandeja_c []
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false :halign "end" (tiempo))
+)
+
+(defwidget escritorios []
+  (box :orientation "horizontal" :class "escritorios" :space-evenly false :spacing 5
+    (for estado_escritorio in estado_de_los_escritorios_0 
+      (label :class "icono-escritorio ${estado_escritorio ? 'activo' : ''}" :text "${estado_escritorio ? '󰚩' : ''}")
+    )
+  )
+)
+
+(defpoll hora :interval "1s" "date +'%H:%M:%S'")
+(defpoll fecha :interval "1s" "date +'%d/%m/%Y'")
+
+(defwidget tiempo []
+  (box :orientation "vertical" :class "tiempo" :valign "center" :space-evenly false
+    (box :orientation "horizontal" :class "hora" :halign "center" hora)
+    (box :orientation "horizontal" :class "fecha" :halign "center" fecha)
+  )
+)

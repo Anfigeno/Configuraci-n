@@ -1,0 +1,83 @@
+# Fondo principal. Si quieres un fondo transparente, solo comenta o elimina la siguiente linea
+theme[main_bg]="#1e1f2a"
+
+# Color de texto principal
+theme[main_fg]="#bbc3e8"
+
+# Color de los titulos de las cajas
+theme[title]="#bbc3e8"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#8B93FF"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#45475A"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#ff7d81"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#34374b"
+
+# Color of text appearing on top of graphs, i.e uptime and current network graph scaling
+theme[graph_text]="#e1e2ea"
+
+# Color de fondo de los medidores de porcentaje
+theme[meter_bg]="#2a2c3c"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#e1e2ea"
+
+# Colores de las cajas de CPU, ram, internet y procesos
+theme[cpu_box]="#ff5263"
+theme[mem_box]="#8eeda1"
+theme[net_box]="#bfed8e"
+theme[proc_box]="#ff7d81"
+
+# Bordes de cajas pequeñas y lineas divisoras
+theme[div_line]="#6ae4fc"
+
+# Grafico de temperatura
+theme[temp_start]="#8eeda1"
+theme[temp_mid]="#ffe780"
+theme[temp_end]="#ff5263"
+
+# Colores del gráfico de CPU (Teal -> Lavender)
+theme[cpu_start]="#6ae4fc"
+theme[cpu_mid]="#bfed8e"
+theme[cpu_end]="#8eeda1"
+
+# Medidor de disco/ram libre
+theme[free_start]="#e882ff"
+theme[free_mid]="#8bb6ff"
+theme[free_end]="#8B93FF"
+
+# Contador de caché en disco/ram
+theme[cached_start]="#6ac6fc"
+theme[cached_mid]="#8B93FF"
+theme[cached_end]="#8bb6ff"
+
+# Medidor de disco/ram disponible
+theme[available_start]="#fab387"
+theme[available_mid]="#ff7d81"
+theme[available_end]="#ff5263"
+
+# Medidor de disco/ram usado
+theme[used_start]="#8eeda1"
+theme[used_mid]="#6ae4fc"
+theme[used_end]="#89dceb"
+
+# Graficos de descarga
+theme[download_start]="#fab387"
+theme[download_mid]="#ff7d81"
+theme[download_end]="#ff5263"
+
+# Graficos de subida
+theme[upload_start]="#8eeda1"
+theme[upload_mid]="#6ae4fc"
+theme[upload_end]="#89dceb"
+
+# Gradiente de color de la caja de proceso para hilos, ram y uso de cpu
+theme[process_start]="#fc9b74"
+theme[process_mid]="#89DCEB"
+theme[process_end]="#e882ff"
