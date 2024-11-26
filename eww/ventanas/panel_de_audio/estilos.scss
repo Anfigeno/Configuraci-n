@@ -1,0 +1,66 @@
+.panel-de-audio {
+  @extend .ventana;
+  padding: 15px;
+}
+
+.reproduciendo {
+  border-bottom: 1px solid $base;
+  padding: 13px 0 15px 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  & .porcentaje {
+    font-size: 12pt;
+    color: $luz;
+  }
+}
+
+.titulo .aplicacion {
+  font-size: 7pt;
+  color: $viento;
+}
+
+.titulo .medio {
+  font-size: 9pt;
+}
+
+button.silenciar {
+  @extend .contenedor-de-boton;
+  padding: 8px 12px;
+  font-size: 10pt;
+  &.silenciado {
+    color: $rojo;
+  }
+}
+
+.volumen {
+  padding-top: 10px;
+
+  & highlight {
+    background-color: $cian;
+    border-radius: 5px;
+  }
+
+  & scale trough {
+    all: unset;
+    background-color: $humo;
+    border-radius: 5px;
+    min-height: 4px;
+  }
+}
+
+.volumen.silenciado highlight {
+  background-color: $rojo;
+}
+
+.separador {
+  margin: 5px 0 15px 0;
+  border-bottom: 1px solid $base;
+}

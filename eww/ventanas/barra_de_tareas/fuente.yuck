@@ -18,7 +18,9 @@
 )
 
 (defwidget bandeja_a []
-  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false "a")
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false
+    (audio)
+  )
 )
 
 (defwidget bandeja_b []
@@ -42,9 +44,6 @@
   )
 )
 
-(defpoll hora :interval "1s" "date +'%H:%M:%S'")
-(defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
-
 (defwidget tiempo []
   (box 
       :orientation "vertical"
@@ -56,16 +55,33 @@
   )
 )
 
-(defvar bandeja_del_sistema_abierta false)
-
 (defwidget indicador_bandeja_del_sistema []
   (box :orientation "horizontal" :class "indicador-bandeja-del-sistema" :space-evenly false
     (button
       :onclick {bandeja_del_sistema_abierta == true 
-        ? "eww update bandeja_del_sistema_abierta=false && eww open bandeja_del_sistema"
-        : "eww update bandeja_del_sistema_abierta=true && eww close bandeja_del_sistema"
+        ? "eww update bandeja_del_sistema_abierta=false && eww close bandeja_del_sistema"
+        : "eww update bandeja_del_sistema_abierta=true && eww open bandeja_del_sistema"
       }
       (label :class "texto" :text {bandeja_del_sistema_abierta ? '' : ''})
+    )
+  )
+)
+
+(defwidget audio []
+  (box :class "audio" :orientation "horizontal" :space-evenly false
+    (button 
+      :class "icono" 
+      :onclick {panel_de_audio_abierto == true
+        ? "eww update panel_de_audio_abierto=false && eww close panel_de_audio"
+        : "eww update panel_de_audio_abierto=true && eww open panel_de_audio"
+      }
+      (box :spacing 14
+        (for dispositivo in dispositivos_de_audio
+          {dispositivo.nombre == "Master"
+            ? dispositivo.silenciado ? '󰖁' : dispositivo.volumen > 30 ? '󰕾' : '󰖀'
+            : dispositivo.silenciado ? '' : ''
+        })
+      )
     )
   )
 )

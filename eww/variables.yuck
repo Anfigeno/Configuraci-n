@@ -1,0 +1,8 @@
+(defpoll hora :interval "1s" "date +'%H:%M:%S'")
+(defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
+(defpoll dispositivos_de_audio :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
+(defpoll aplicaciones_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio")
+(defpoll dispositivos_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
+
+(defvar bandeja_del_sistema_abierta false)
+(defvar panel_de_audio_abierto false)

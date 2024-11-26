@@ -38,3 +38,12 @@
     background-color: $vacio;
   }
 }
+
+.audio button {
+  padding: 0 12px;
+  @extend .contenedor-de-boton;
+
+  &.icono {
+    font-size: 10pt;
+  }
+}
