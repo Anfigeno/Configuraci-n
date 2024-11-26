@@ -1,6 +1,5 @@
 vim.opt.termguicolors = true
 vim.opt.number = true
-vim.opt.statuscolumn = "%l   "
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.showcmd = true
