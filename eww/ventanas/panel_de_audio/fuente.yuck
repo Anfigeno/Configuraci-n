@@ -17,7 +17,7 @@
         (for dispositivo_reproduciendo in dispositivos_reproduciendo
           (box :orientation "vertical" :class "reproduciendo" :space-evenly false :hexpand true
             (box :class "titulo" :orientation "horizontal" :space-evenly false :hexpand true :spacing 12
-              (label :class "dispositivo" :halign "start" :hexpand true :text {dispositivo_reproduciendo.nombre})
+              (label :class "dispositivo" :halign "start" :hexpand true :truncate true :text {dispositivo_reproduciendo.nombre})
               (label :class "porcentaje" :text "${dispositivo_reproduciendo.volumen}%")
               (button 
                 :class "silenciar ${dispositivo_reproduciendo.silenciado ? 'silenciado' : ''}"
@@ -47,8 +47,8 @@
           (box :orientation "vertical" :class "reproduciendo" :space-evenly false :hexpand true
             (box :class "titulo" :orientation "horizontal" :space-evenly false :hexpand true :spacing 12
               (box :orientation "vertical" :hexpand true :halign "start"
-                (label :class "medio" :halign "start" :text {aplicacion_reproduciendo.titulo_de_medio})
-                (label :class "aplicacion" :halign "start" :text {aplicacion_reproduciendo.nombre})
+                (label :class "medio" :halign "start" :truncate true :text {aplicacion_reproduciendo.titulo_de_medio})
+                (label :class "aplicacion" :halign "start" :truncate true :text {aplicacion_reproduciendo.nombre})
               )
               (label :class "porcentaje" :text "${aplicacion_reproduciendo.volumen}%")
               (button 
