@@ -18,7 +18,8 @@
 )
 
 (defwidget bandeja_a []
-  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false
+  (box :orientation "horizontal" :class "bandeja-a" :space-evenly false :spacing 8
+    (indicador_de_menu_principal)
     (audio)
   )
 )
@@ -81,6 +82,22 @@
             ? dispositivo.silenciado ? '󰖁' : dispositivo.volumen > 30 ? '󰕾' : '󰖀'
             : dispositivo.silenciado ? '' : ''
         })
+      )
+    )
+  )
+)
+
+(defwidget indicador_de_menu_principal []
+  (box :class "indicador-de-menu-principal"
+    (button
+      :onclick "eww update menu_principal_abierto=${!menu_principal_abierto} && eww ${menu_principal_abierto ? 'close' : 'open'} menu_principal"
+      (image 
+        :path {avatar_del_usuario_existe 
+          ? "${inicio}/.avatar.png"
+          : "${raiz}/img/avatar_por_defecto.png"
+        }
+        :image-height 32
+        :image-width 32
       )
     )
   )

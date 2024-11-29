@@ -1,0 +1,109 @@
+(defwindow menu_principal
+  :geometry (geometry 
+                      :x "12px"
+                      :y "56px"
+                      :anchor "top left")
+  :stacking "bg"
+  :monitor 0
+  :windowtype "normal"
+  :wm-ignore true 
+  (componente_menu_principal)
+)
+
+(defwidget componente_menu_principal []
+  (box :class "menu-principal" :space-evenly false :hexpand true
+    (botones_de_poder)
+    (panel_de_usuario)
+  )
+)
+
+(defwidget botones_de_poder []
+  (box :halign "start" :class "poder" :orientation "vertical" :space-evenly true :spacing 8
+    (eventbox 
+      :valign "center"
+      :onclick "systemctl poweroff" 
+      :onhover "eww update boton_apagar_activo=${!boton_apagar_activo}"
+      :onhoverlost "eww update boton_apagar_activo=${!boton_apagar_activo}"
+      (image
+        :path "${raiz}/activos/img/apagar${boton_apagar_activo ? '_activado' : ''}.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (eventbox 
+      :valign "center"
+      :onclick "systemctl reboot" 
+      :onhover "eww update boton_reiniciar_activo=${!boton_reiniciar_activo}"
+      :onhoverlost "eww update boton_reiniciar_activo=${!boton_reiniciar_activo}"
+      (image
+        :path "${raiz}/activos/img/reiniciar${boton_reiniciar_activo ? '_activado' : ''}.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (eventbox 
+      :valign "center"
+      :onclick "systemctl suspend" 
+      :onhover "eww update boton_suspender_activo=${!boton_suspender_activo}"
+      :onhoverlost "eww update boton_suspender_activo=${!boton_suspender_activo}"
+      (image
+        :path "${raiz}/activos/img/suspender${boton_suspender_activo ? '_activado' : ''}.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (eventbox 
+      :valign "center"
+      :onclick "TAREA: hacer funcionar esto" 
+      :onhover "eww update boton_cerrar_sesion_activo=${!boton_cerrar_sesion_activo}"
+      :onhoverlost "eww update boton_cerrar_sesion_activo=${!boton_cerrar_sesion_activo}"
+      (image
+        :path "${raiz}/activos/img/cerrar_sesion${boton_cerrar_sesion_activo ? '_activado' : ''}.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+  )
+)
+
+(defwidget panel_de_usuario []
+  (box :orientation "vertical" :class "panel-de-usuario" :space-evenly false :hexpand true
+    (box :orientation "horizontal" :halign "start" :class "primer-piso" :spacing 16 :space-evenly false
+      (image 
+        :path {avatar_del_usuario_existe 
+          ? "${inicio}/.avatar.png"
+          : "${raiz}/activos/img/avatar_por_defecto.png"
+        } 
+        :image-width 120
+        :image-height 120)
+      (box :orientation "vertical" :valign "center" :class "info" :space-evenly false :spacing 10
+        (box :space-evenly false :hexpand true :class "titulo"
+          (label :text {usuario} :halign "start" :hexpand true)
+          (tooltip
+            "Administrador"
+            (label 
+              :halign "end"
+              :class "${usuario_es_administrador ? 'admin' : ''}"
+              :text {usuario_es_administrador ? "" : ""}
+            )
+          )
+        )
+        (box :spacing 16 :space-evenly false :class "recursos"
+          (label :class "ram" :text "RAM ${round(100/EWW_RAM.total_mem*EWW_RAM.used_mem, 1)}%")
+          (label :class "cpu" :text "CPU ${round(EWW_CPU.avg, 1)}%")
+          (label :class "disco" :text "DISCO ${round(EWW_DISK['/'].used_perc, 1)}%")
+        )
+      )
+    )
+    (box :orientation "horizontal" :class "segundo-piso" :space-evenly false 
+      (box :space-evenly false :spacing 8 :class "actividad" :halign "start" :hexpand true
+        (label :class "icono" :text "")
+        (label :class "subtitulo" :text "${horas_activo} horas y ${minutos_activo} minutos activo")
+      )
+      (box :space-evenly false :spacing 8 :class "aplicaciones" :halign "end"
+        (label :class "icono" :text "󰀲")
+        (label :class "subtitulo" :text "${aplicaciones_activas} Aplicaciones activas")
+      )
+    )
+  )
+)

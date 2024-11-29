@@ -2,3 +2,4 @@
 (include "./ventanas/barra_de_tareas/fuente.yuck")
 (include "./ventanas/bandeja_del_sistema/fuente.yuck")
 (include "./ventanas/panel_de_audio/fuente.yuck")
+(include "./ventanas/menu_principal/fuente.yuck")

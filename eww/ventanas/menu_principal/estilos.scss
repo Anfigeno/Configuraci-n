@@ -1,0 +1,55 @@
+.menu-principal {
+  @extend .ventana;
+  padding: 0;
+}
+
+.poder {
+  font-size: 15pt;
+  padding: 20px 15px;
+  border-right: 1px solid $humo;
+  & image {
+    @extend .contenedor-de-boton;
+    border-radius: 90px;
+    padding: 10px;
+  }
+}
+
+.panel-de-usuario .primer-piso {
+  padding: 30px;
+  background-color: $sombra;
+  & image {
+    border: 1px solid $humo;
+  }
+
+  & .titulo {
+    font-size: 18pt;
+    & .admin {
+      color: $rojo;
+    }
+  }
+
+  .recursos {
+    color: $reflejo;
+    font-size: 9pt;
+  }
+}
+
+.segundo-piso {
+  background-color: $base;
+  border-top: 1px solid $humo;
+  padding: 25px 30px;
+
+  & .actividad {
+    & .icono {
+      font-size: 15pt;
+      color: $amarillo;
+      padding-right: 12px;
+    }
+  }
+
+  & .aplicaciones .icono {
+    font-size: 18pt;
+    color: $cian;
+    padding-right: 10px;
+  }
+}

@@ -1,8 +1,23 @@
+(defvar raiz "/home/anfitrion/.config/eww" )
+
+(defpoll inicio :interval "1m" "echo $HOME")
 (defpoll hora :interval "1s" "date +'%H:%M:%S'")
 (defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
 (defpoll dispositivos_de_audio :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
 (defpoll aplicaciones_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio")
 (defpoll dispositivos_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
+(defpoll usuario :interval "1m" "echo $USER")
+(defpoll avatar_del_usuario_existe :interval "1m" "if test -f ~/.avatar.png; then echo true; else echo false; fi")
+(defpoll usuario_es_administrador :interval "1m" "groups | grep -q 'sudo' && echo true || echo false")
+(defpoll horas_activo :interval "1m" "uptime -p | cut -d ' ' -f 2-3 | awk '{print $1}'")
+(defpoll minutos_activo :interval "1m" "uptime -p | cut -d ' ' -f 4-5 | awk '{print $1}'")
+(defpoll aplicaciones_activas :interval "1s" "wmctrl -l | wc -l")
+
 
 (defvar bandeja_del_sistema_abierta false)
 (defvar panel_de_audio_abierto false)
+(defvar boton_apagar_activo false)
+(defvar boton_reiniciar_activo false)
+(defvar boton_suspender_activo false)
+(defvar boton_cerrar_sesion_activo false)
+(defvar menu_principal_abierto false)

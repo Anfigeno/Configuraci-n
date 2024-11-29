@@ -2,7 +2,7 @@
   background-color: $vacio;
   color: $tope;
   font-family: "Gobold";
-  padding: 4px 17px;
+  padding: 4px 12px;
   font-size: 8pt;
 }
 
@@ -46,4 +46,9 @@
   &.icono {
     font-size: 10pt;
   }
+}
+
+.indicador-de-menu-principal button {
+  @extend .contenedor-de-boton;
+  padding: 1px;
 }
