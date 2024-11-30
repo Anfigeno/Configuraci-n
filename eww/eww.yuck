@@ -3,3 +3,4 @@
 (include "./ventanas/bandeja_del_sistema/fuente.yuck")
 (include "./ventanas/panel_de_audio/fuente.yuck")
 (include "./ventanas/menu_principal/fuente.yuck")
+(include "./ventanas/el_tiempo/fuente.yuck")

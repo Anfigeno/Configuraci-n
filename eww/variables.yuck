@@ -1,8 +1,10 @@
 (defvar raiz "/home/anfitrion/.config/eww" )
-
 (defpoll inicio :interval "1m" "echo $HOME")
+
+(defpoll estado_de_los_escritorios_0 :interval "100ms" :initial "[]" "~/.config/eww/clis/escritorios --pantallas 2 --pantalla 1")
 (defpoll hora :interval "1s" "date +'%H:%M:%S'")
 (defpoll fecha :interval "1s" "date +'%d / %m / %Y'")
+(defpoll fecha_larga :interval "1s" "date +'%A, %d de %B del %Y'")
 (defpoll dispositivos_de_audio :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
 (defpoll aplicaciones_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio")
 (defpoll dispositivos_reproduciendo :interval "100ms" :initial "[]" "~/.config/eww/clis/audio --dispositivos")
@@ -12,8 +14,10 @@
 (defpoll horas_activo :interval "1m" "uptime -p | cut -d ' ' -f 2-3 | awk '{print $1}'")
 (defpoll minutos_activo :interval "1m" "uptime -p | cut -d ' ' -f 4-5 | awk '{print $1}'")
 (defpoll aplicaciones_activas :interval "1s" "wmctrl -l | wc -l")
+(defpoll clima_info :interval "30m" "~/.config/eww/clis/clima --clave-api $WEATHER_API_KEY --ciudad Lima --idioma es")
 
 
+(defvar el_clima_abierto false)
 (defvar bandeja_del_sistema_abierta false)
 (defvar panel_de_audio_abierto false)
 (defvar boton_apagar_activo false)

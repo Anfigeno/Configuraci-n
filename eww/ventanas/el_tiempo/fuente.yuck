@@ -1,0 +1,88 @@
+(defwindow el_tiempo
+  :monitor 0
+  :geometry (geometry :width "440px"
+                      :x "-12px"
+                      :y "56px"
+                      :anchor "top right")
+  :stacking "bg"
+  :windowtype "normal"
+  :wm-ignore true 
+  (componente_el_tiempo)
+)
+
+(defwidget componente_el_tiempo []
+  (box :class "el-tiempo" :orientation "vertical" :space-evenly false :hexpand true
+    (box :class "primer-piso" :space-evenly false
+      (hora_y_fecha)
+    )
+    (box :class "segundo-piso" :space-evenly false
+      (calendar :hexpand true)
+    )
+    (box :class "tercer-piso" :space-evenly false
+      (clima)
+    )
+  )
+)
+
+(defwidget hora_y_fecha []
+  (box :hexpand true :space-evenly false
+    (box :class "hora" :space-evenly false :hexpand true
+      (label :class "icono" :text "")
+      (label :class "titulo" :text {hora})
+    )
+    (box :class "fecha" :space-evenly false :halign "end"
+      (label :class "icono" :text "")
+      (label :class "titulo" :text {fecha_larga})
+    )
+  )
+)
+
+(defwidget clima []
+  (box 
+    :space-evenly false
+    :orientation "vertical" 
+    :hexpand true
+    (box
+      :class "indicador-dia"
+      :hexpand true
+      :style "background-image: linear-gradient(to left, #1e1f2a, ${clima_info.current.is_day == 1 ? '#ffe780' : '#8B93FF'})"
+    )
+    (box :class "clima" :space-evenly false :orientation "vertical"
+      (box :class "locacion" :space-evenly false :spacing 14 :halign "center"
+        (label :class "icono" :text "")
+        (label :class "titulo" :text "${clima_info.location.name}")
+      )
+      (box :space-evenly false :halign "center" :hexpand true
+        (box 
+          :class "icono" 
+          :style "background-image: url('http:${clima_info.current.condition.icon}');"
+        )
+      ) 
+      (label :class "temperatura" :text "${clima_info.current.temp_c}°C")
+      (label :class "condicion" :text "${clima_info.current.condition.text}")
+      (box :class "extra" :orientation "horizontal" :space-evenly true 
+        (box :class "info viento" :space-evenly false :orientation "vertical"
+          (box :class "titulo" :space-evenly false :spacing 8 :halign "center"
+            (label :class "icono" :text "󱪈")
+            (label :text "Viento")
+          )
+          (label :class "subtitulo" :text "${clima_info.current.wind_kph} km/h")
+        )
+        (box :class "info humedad" :space-evenly false :orientation "vertical"
+          (box :class "titulo" :space-evenly false :spacing 8 :halign "center"
+            (label :class "icono" :text "󰖌")
+            (label :text "Humedad")
+          )
+          (label :class "subtitulo" :text "${clima_info.current.humidity}%")
+        )
+        (box :class "info sensasion" :space-evenly false :orientation "vertical"
+          (box :class "titulo" :space-evenly false :spacing 8 :halign "center"
+            (label :class "icono" :text "")
+            (label :text "Sensasión")
+          )
+          (label :class "subtitulo" :text "${clima_info.current.feelslike_c}°C")
+        )
+      )
+    )
+  ) 
+)

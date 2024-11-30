@@ -7,7 +7,6 @@
   :wm-ignore false
   (contenedor_barra_de_tareas))
 
-(defpoll estado_de_los_escritorios_0 :interval "100ms" :initial "[]" "~/.config/eww/clis/escritorios --pantallas 2 --pantalla 1")
 
 (defwidget contenedor_barra_de_tareas []
   (box :orientation "horizontal" :class "barra-de-tareas" :space-evenly true 
@@ -45,15 +44,19 @@
   )
 )
 
+
 (defwidget tiempo []
-  (box 
+  (button
+    :class "tiempo"
+    :onclick "eww update el_clima_abierto=${!el_clima_abierto} && eww ${el_clima_abierto ? 'close' : 'open'} el_tiempo"
+    (box 
       :orientation "vertical"
-      :class "tiempo"
       :valign "center"
       :space-evenly false
-    (box :orientation "horizontal" :class "hora" :halign "center" hora)
-    (box :orientation "horizontal" :class "fecha" :halign "center" fecha)
-  )
+      (label :class "hora" :halign "center" :text {hora})
+      (label :class "fecha" :halign "center" :text {fecha})
+    )
+  ) 
 )
 
 (defwidget indicador_bandeja_del_sistema []

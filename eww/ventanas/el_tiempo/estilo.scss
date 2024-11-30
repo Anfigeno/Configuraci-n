@@ -1,0 +1,128 @@
+.el-tiempo {
+  @extend .ventana;
+  padding: 0;
+}
+
+.primer-piso {
+  background-color: $vacio;
+  padding: 25px;
+
+  & .hora {
+    & .icono {
+      font-size: 16pt;
+      color: $cian;
+      padding-right: 14px;
+    }
+
+    & .titulo {
+      font-size: 11pt;
+    }
+  }
+
+  & .fecha {
+    & .icono {
+      font-size: 16pt;
+      color: $rosa;
+      padding-right: 14px;
+    }
+
+    & .titulo {
+      font-size: 10pt;
+    }
+  }
+}
+
+.segundo-piso {
+  background-color: $sombra;
+  padding: 25px 25px 20px 25px;
+
+  & calendar {
+    & * {
+      padding: 8px 0;
+    }
+    &.highlight {
+      color: $luz;
+    }
+
+    &.button {
+      color: $nube;
+    }
+
+    &:selected {
+      color: $verde;
+    }
+
+    &:indeterminate {
+      color: $vapor;
+    }
+
+    &.header {
+      color: $reflejo;
+    }
+  }
+}
+
+.tercer-piso {
+  border-top: 1px solid $humo;
+  background-color: $base;
+
+  & .indicador-dia {
+    padding: 4px;
+  }
+
+  & .clima {
+    padding: 25px;
+    & .icono {
+      padding: 64px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    & .locacion {
+      & .icono {
+        font-size: 18pt;
+        color: $rojo;
+        padding: 0;
+      }
+
+      & .titulo {
+        font-size: 12pt;
+        color: $reflejo;
+      }
+    }
+
+    & .temperatura {
+      font-size: 24pt;
+      color: $luz;
+    }
+
+    & .condicion {
+      font-size: 10pt;
+    }
+
+    & .extra {
+      padding-top: 20px;
+      & .info {
+        font-size: 10pt;
+        color: $reflejo;
+
+        & .icono {
+          padding: 0;
+        }
+        &.viento .icono {
+          color: $turquesa;
+        }
+        &.humedad .icono {
+          color: $azul;
+        }
+        &.sensasion .icono {
+          color: $magenta;
+        }
+        & .subtitulo {
+          color: $viento;
+          font-size: 14pt;
+        }
+      }
+    }
+  }
+}
