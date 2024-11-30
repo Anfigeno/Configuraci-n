@@ -1,7 +1,7 @@
 (defwindow bandeja_del_sistema 
-  :geometry (geometry :width "140px"
+  :geometry (geometry :width "220px"
                       :height "50px"
-                      :x "-40px"
+                      :x "-12px"
                       :y "56px"
                       :anchor "top right")
   :stacking "bg"
