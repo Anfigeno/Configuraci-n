@@ -2,7 +2,7 @@ return {
 	"shellRaining/hlchunk.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local colores = require("mestizo").paleta()
+		local colores = require("mestizo.colores")
 
 		require("hlchunk").setup({
 			indent = { enable = false },
@@ -10,10 +10,7 @@ return {
 			blank = { enable = false },
 			chunk = {
 				enable = true,
-				style = {
-					{ fg = colores.humo },
-					{ fg = colores.rojo },
-				},
+				style = require("mestizo.claves.integraciones.especial.hlchunk"),
 			},
 		})
 	end,

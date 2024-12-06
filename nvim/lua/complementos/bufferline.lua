@@ -5,7 +5,7 @@ return {
 		require("scope").setup({})
 
 		require("bufferline").setup({
-			highlights = require("mestizo.integraciones.especial.bufferline").obtener(),
+			highlights = require("mestizo.claves.integraciones.especial.bufferline").obtener(),
 			options = {
 				separator_style = "slope",
 				diagnostics = "nvim_lsp",
@@ -19,6 +19,8 @@ return {
 				end,
 			},
 		})
+
+		require("mestizo.claves.integraciones.extra.iconos-uniformes-bufferline").establecer()
 
 		vim.keymap.set("n", "<tab>", "<cmd>BufferLineCycleNext<cr>")
 		vim.keymap.set("n", "<s-tab>", "<cmd>BufferLineCyclePrev<cr>")

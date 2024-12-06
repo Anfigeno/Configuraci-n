@@ -4,7 +4,7 @@ return {
 	config = function()
 		local helpers = require("incline.helpers")
 		local devicons = require("nvim-web-devicons")
-		local colores = require("mestizo").paleta()
+		local colores = require("mestizo.colores")
 
 		require("incline").setup({
 			window = {

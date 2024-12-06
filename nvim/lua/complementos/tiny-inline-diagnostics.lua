@@ -3,7 +3,7 @@ return {
 	event = "LspAttach",
 	priority = 1000, -- needs to be loaded in first
 	config = function()
-		local colores = require("mestizo").paleta()
+		local colores = require("mestizo.colores")
 
 		require("tiny-inline-diagnostic").setup({
 			hi = {

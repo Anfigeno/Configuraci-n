@@ -6,7 +6,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
-		local colores = require("mestizo").paleta()
+		local colores = require("mestizo.colores")
 
 		require("toggleterm").setup({
 			open_mapping = [[<c-k>]],
