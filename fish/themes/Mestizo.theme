@@ -1,0 +1,30 @@
+# name: 'Mestizo'
+# url: 'https://github.com/Anfigeno/MestizoFish'
+# preferred_background: 222430
+
+fish_color_normal bcc3e8
+fish_color_command 8B93FF
+fish_color_param 8eeda1
+fish_color_keyword ff5263
+fish_color_quote 8eeda1
+fish_color_redirection ff7d81
+fish_color_end fc9b74
+fish_color_comment 888daa
+fish_color_error ff5263
+fish_color_gray 494d69
+fish_color_selection --background=34374b
+fish_color_search_match --background=34374b
+fish_color_option 8eeda1
+fish_color_operator ff5263
+fish_color_escape e4adff
+fish_color_autosuggestion 888daa
+fish_color_cancel ff5263
+fish_color_cwd f9e2af
+fish_color_user 6ac6fc
+fish_color_host 8B93FF
+fish_color_host_remote 8eeda1
+fish_color_status ff5263
+fish_pager_color_progress 494d69
+fish_pager_color_prefix bfed8e
+fish_pager_color_completion bcc3e8
+fish_pager_color_description 8bb6ff
