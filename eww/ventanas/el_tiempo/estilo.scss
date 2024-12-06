@@ -5,6 +5,7 @@
 
 .primer-piso {
   background-color: $vacio;
+  border-bottom: 1px solid $humo;
   padding: 25px;
 
   & .hora {
